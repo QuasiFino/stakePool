@@ -63,7 +63,7 @@ class Pool extends Component{
         this.setState({loading: true, viewMessage: false});
         try{
             await poolStake.methods
-                .stake(bignumber(this.state.amountEnter).multipliedBy(10**18))
+                .stake(`${this.state.amountEnter}000000000000000000`)
                 .send({from: accounts[0]}); 
             this.setState({amountEnter: "", viewMessage: true, message: "Your request was processed successfully!!!", loading: false});
         } catch(err) {
@@ -78,7 +78,7 @@ class Pool extends Component{
         this.setState({loading: true, viewMessage: false});
         try{
             await poolStake.methods
-                .withdraw(bignumber(this.state.amountEnter).multipliedBy(10**18))
+                .withdraw(`${this.state.amountEnter}000000000000000000`)
                 .send({from: accounts[0]}); 
             this.setState({amountEnter: "", viewMessage: true, message: "Your request was processed successfully!!!", loading: false});
         } catch(err) {
